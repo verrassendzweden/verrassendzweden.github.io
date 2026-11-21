@@ -11,7 +11,7 @@ klasse: breedpagina
 
 {% assign regios = site.data.steden | group_by: "regio" %}
 {% for regio in regios %}
-<h2>{{ regio.name }}</h2>
+<h2>Regio {{ regio.name }}</h2>
 <ul>
   {% for stad in regio.items %}
   <li>{{ stad.naam }}: {{ stad.regel }}</li>
