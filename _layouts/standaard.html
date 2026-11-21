@@ -12,12 +12,12 @@
          title        titel in het tabblad van de browser
          description  korte omschrijving voor zoekmachines
          menu         welke menuknop onderstreept wordt
-         klasse       tekstpagina (smalle kolom) of breedpagina
+         klasse       tekstpagina (smalle kolom), breedpagina of homepage
        ============================================================ -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="{{ page.description }}">
-  <title>{{ page.title }} — Verrassend Zweden</title>
+  <title>{% if page.klasse == "homepage" %}Verrassend Zweden — {{ page.title }}{% else %}{{ page.title }} — Verrassend Zweden{% endif %}</title>
   <link rel="stylesheet" href="{{ '/opmaak/style.css' | relative_url }}">
 </head>
 <body>
@@ -37,6 +37,13 @@
   </header>
 
   <!-- ===== INHOUD VAN DE PAGINA ===== -->
+  <!-- De homepage (klasse: homepage) heeft eigen banden over de volle breedte
+       en regelt zelf zijn .wrap; alle andere pagina's staan in de kolom. -->
+  {% if page.klasse == "homepage" %}
+  <main class="home">
+{{ content }}
+  </main>
+  {% else %}
   <main>
     <div class="wrap">
       <div class="{{ page.klasse | default: 'tekstpagina' }}">
@@ -44,6 +51,7 @@
       </div>
     </div>
   </main>
+  {% endif %}
 
   <!-- ===== VOETTEKST ===== -->
   <footer>

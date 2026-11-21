@@ -1,0 +1,122 @@
+---
+layout: standaard
+title: Zweedse steden, bekend en minder bekend
+description: Zweden is meer dan bossen en meren. Ontdek Zweedse steden voor een stedentrip, ook buiten Stockholm, Gotenburg en Malmö.
+menu: home
+klasse: homepage
+# Welke steden in de uitgelichte kaart bovenaan wisselen (8 seconden per stad).
+# Dit zijn de namen van de bestanden uit _data/steden.yml.
+hero:
+  - uppsala
+  - linkoping
+  - helsingborg
+# Welke zes steden onder "Steden om te ontdekken" staan, in deze volgorde.
+tegels:
+  - uppsala
+  - linkoping
+  - norrkoping
+  - helsingborg
+  - lund
+  - sigtuna
+---
+
+<!-- ============================================================
+     HOMEPAGINA
+     Opbouw (wisselend ritme): hero (wit), steden (lichte band),
+     praktisch (wit). Kop en voettekst komen uit de basislayout.
+
+     Foto's: in _data/steden.yml kan bij een stad de regel
+       foto: "/fotos/uppsala.jpg"
+       fotobron: "Foto: [maker], [licentie]"
+     worden toegevoegd. Zolang die ontbreekt, toont de pagina
+     een lege fotoplek met "Foto volgt".
+     ============================================================ -->
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="wrap hero-binnen">
+    <div class="hero-tekst">
+      <h1>Zweden is meer dan bossen en meren</h1>
+      <p>Zweden heeft veel steden die een bezoek waard zijn, ook buiten Stockholm, Gotenburg en Malmö. Op deze site ontdek je ze: wat je er kunt zien en hoe je er komt.</p>
+    </div>
+
+    <div class="hero-kaart" data-hero aria-roledescription="carrousel" aria-label="Uitgelichte steden">
+      <div class="hero-slides" aria-live="off">
+        {% for b in page.hero %}
+        {% assign stad = site.data.steden | where: "bestand", b | first %}
+        <div class="hero-slide{% if forloop.first %} actief{% endif %}">
+          <div class="foto-vak hero-foto">
+            {% if stad.foto %}<img src="{{ stad.foto | relative_url }}" alt="{{ stad.naam }}">{% else %}<span>Foto volgt</span>{% endif %}
+          </div>
+          <p class="foto-bron">{% if stad.fotobron %}{{ stad.fotobron }}{% else %}Foto: [maker], [licentie]{% endif %}</p>
+          <div class="hero-onder">
+            <p class="regio-label">{{ stad.regio }}</p>
+            <h2>{{ stad.naam }}</h2>
+            <p>{{ stad.regel }}</p>
+            <a class="knop" href="{{ '/' | append: stad.bestand | append: '.html' | relative_url }}">Bekijk de stad →</a>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+
+      <div class="hero-bediening">
+        <div class="hero-stippen">
+          {% for b in page.hero %}
+          <button type="button" class="hero-stip{% if forloop.first %} actief{% endif %}" aria-label="Toon stad {{ forloop.index }}"></button>
+          {% endfor %}
+        </div>
+        <button type="button" class="hero-pauze" aria-label="Pauzeer het wisselen">Pauzeer</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STEDEN OM TE ONTDEKKEN ===== -->
+<section class="band-licht">
+  <div class="wrap">
+    <div class="sectie-kop">
+      <h2>Steden om te ontdekken</h2>
+      <a href="{{ '/steden.html' | relative_url }}">Naar alle steden →</a>
+    </div>
+    <div class="tegels">
+      {% for b in page.tegels %}
+      {% assign stad = site.data.steden | where: "bestand", b | first %}
+      <a class="tegel" href="{{ '/' | append: stad.bestand | append: '.html' | relative_url }}">
+        <div class="foto-vak tegel-foto">
+          {% if stad.foto %}<img src="{{ stad.foto | relative_url }}" alt="">{% else %}<span>Foto volgt</span>{% endif %}
+        </div>
+        <div class="tegel-tekst">
+          <p class="regio-label">{{ stad.regio }}</p>
+          <h3>{{ stad.naam }}</h3>
+          <p>{{ stad.regel }}</p>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRAKTISCH VOOR JE REIS ===== -->
+<section class="praktisch">
+  <div class="wrap">
+    <div class="sectie-kop">
+      <h2>Praktisch voor je reis</h2>
+    </div>
+    <div class="kaarten">
+      <a class="kaart" href="{{ '/reisinformatie.html' | relative_url }}">
+        <h3>Reizen vanuit Nederland</h3>
+        <p>Vliegen, trein of auto: wat past bij jouw reis.</p>
+      </a>
+      <a class="kaart" href="{{ '/reisinformatie.html' | relative_url }}">
+        <h3>Vervoer in Zweden</h3>
+        <p>Hoe je van stad naar stad en door de stad komt.</p>
+      </a>
+      <a class="kaart" href="{{ '/reisinformatie.html' | relative_url }}">
+        <h3>Wanneer gaan</h3>
+        <p>Seizoenen, daglicht en weer in grote lijnen.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<script src="{{ '/scripts/home.js' | relative_url }}" defer></script>
