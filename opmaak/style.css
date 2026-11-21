@@ -408,6 +408,8 @@ main.home { padding: 0; }
 .tegel-tekst { padding: 20px 24px 26px; }
 .tegel-tekst h3 { margin: 0 0 6px; color: var(--blue-dark); font-size: 26px; }
 .tegel-regel { margin: 0; color: var(--muted); font-size: 18px; }
+/* Knop onder de tegels: alleen op mobiel (zie onderaan) */
+.alle-onder { display: none; }
 
 /* Praktisch voor je reis (wit, kaarten in lichte tint) */
 .praktisch { padding: 80px 0 96px; }
@@ -438,6 +440,10 @@ main.home { padding: 0; }
   .sectie-kop h2, .praktisch-titel { font-size: 30px; }
   /* Mobiel: alleen de eerste drie stadstegels tonen */
   .tegel:nth-child(n+4) { display: none; }
+  /* Mobiel: "Naar alle steden" als knop onder de tegels, niet naast de titel */
+  .alle-link-boven { display: none; }
+  .alle-onder { display: block; margin-top: 28px; }
+  .alle-knop { display: block; }
 }
 @media (prefers-reduced-motion: reduce) {
   .hero-slide, .hero-slide.actief, .hero-stip { transition: none; }

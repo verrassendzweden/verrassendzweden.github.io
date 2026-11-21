@@ -76,7 +76,7 @@ tegels:
   <div class="wrap">
     <div class="sectie-kop">
       <h2>Steden om te ontdekken</h2>
-      <a class="alle-link" href="{{ '/steden.html' | relative_url }}">Naar alle steden →</a>
+      <a class="alle-link alle-link-boven" href="{{ '/steden.html' | relative_url }}">Naar alle steden →</a>
     </div>
     <p class="sectie-intro">Kies een stad voor hoogtepunten, tips en praktische informatie.</p>
     <div class="tegels">
@@ -93,6 +93,10 @@ tegels:
         </div>
       </a>
       {% endfor %}
+    </div>
+    <!-- Alleen op mobiel zichtbaar: de link bovenaan verdwijnt dan -->
+    <div class="alle-onder">
+      <a class="knop alle-knop" href="{{ '/steden.html' | relative_url }}">Naar alle steden →</a>
     </div>
   </div>
 </section>
