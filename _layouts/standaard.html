@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <!-- ============================================================
+       BASISLAYOUT VAN VERRASSEND ZWEDEN
+       Het ‘briefpapier’ van de site: alles wat op elke pagina
+       hetzelfde is (kop, menu, voettekst, verwijzing naar opmaak).
+       Een wijziging hier geldt meteen voor alle pagina's.
+
+       De pagina's zelf beginnen met een blokje tussen twee regels
+       met drie streepjes (---). Daarin staan onder meer:
+         title        titel in het tabblad van de browser
+         description  korte omschrijving voor zoekmachines
+         menu         welke menuknop onderstreept wordt
+         klasse       tekstpagina (smalle kolom) of breedpagina
+       ============================================================ -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{ page.description }}">
+  <title>{{ page.title }} — Verrassend Zweden</title>
+  <link rel="stylesheet" href="{{ '/opmaak/style.css' | relative_url }}">
+</head>
+<body>
+
+  <!-- ===== KOP EN MENU ===== -->
+  <header>
+    <div class="wrap">
+      <a class="logo" href="{{ '/' | relative_url }}">Verrassend Zweden</a>
+      <nav id="hoofdmenu" aria-label="Hoofdnavigatie">
+        <ul>
+          <li><a href="{{ '/steden.html' | relative_url }}"{% if page.menu == "steden" %} aria-current="page"{% endif %}>Steden</a></li>
+          <li><a href="{{ '/reisinformatie.html' | relative_url }}"{% if page.menu == "reisinformatie" %} aria-current="page"{% endif %}>Reisinformatie</a></li>
+          <li><a href="{{ '/over.html' | relative_url }}"{% if page.menu == "over" %} aria-current="page"{% endif %}>Over de site</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== INHOUD VAN DE PAGINA ===== -->
+  <main>
+    <div class="wrap">
+      <div class="{{ page.klasse | default: 'tekstpagina' }}">
+{{ content }}
+      </div>
+    </div>
+  </main>
+
+  <!-- ===== VOETTEKST ===== -->
+  <footer>
+    <div class="wrap">
+      <div class="voettekst-kolommen">
+        <div class="voettekst-merk">
+          <p class="voettekst-naam">Verrassend Zweden</p>
+          <p>Zweedse steden, bekend en minder bekend.</p>
+          <p class="voettekst-maker">Van dezelfde maker: <a href="https://suecofiel.github.io">De Suecofiel</a>, kennisplatform over Zweden.</p>
+        </div>
+
+        <nav aria-label="Steden">
+          <h2>Steden</h2>
+          <ul>
+            <li><a href="{{ '/steden.html' | relative_url }}">Alle steden</a></li>
+          </ul>
+        </nav>
+
+        <nav aria-label="Reisinformatie">
+          <h2>Reisinformatie</h2>
+          <ul>
+            <li><a href="{{ '/reisinformatie.html' | relative_url }}">Reisinformatie</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="voettekst-onder">
+        <p>© 2026 Verrassend Zweden</p>
+        <div class="voettekst-onder-links">
+          <a href="{{ '/over.html' | relative_url }}">Over de site</a>
+          <a href="{{ '/over.html#disclaimer' | relative_url }}">Disclaimer</a>
+          <a href="#">Terug naar boven ↑</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

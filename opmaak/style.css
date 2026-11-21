@@ -1,0 +1,207 @@
+/* ===== VERRASSEND ZWEDEN: gedeelde opmaak voor alle pagina's =====
+   Dit bestand bepaalt hoe elke pagina eruitziet. Een wijziging
+   hier geldt direct voor de hele website.
+   Eerste bouwronde: alleen kop, menu, tekstpagina's en voettekst. */
+
+/* ===== LETTERTYPE =====
+   Source Sans 3 (SIL Open Font License, zie de map lettertypes),
+   op de site zelf, zodat er geen gegevens naar Google gaan. */
+@font-face {
+  font-family: "Source Sans 3";
+  src: url("../lettertypes/source-sans-3-400-normal.woff") format("woff");
+  font-weight: 400; font-style: normal; font-display: swap; size-adjust: 106%;
+}
+@font-face {
+  font-family: "Source Sans 3";
+  src: url("../lettertypes/source-sans-3-600-normal.woff") format("woff");
+  font-weight: 600; font-style: normal; font-display: swap; size-adjust: 106%;
+}
+@font-face {
+  font-family: "Source Sans 3";
+  src: url("../lettertypes/source-sans-3-700-normal.woff") format("woff");
+  font-weight: 700; font-style: normal; font-display: swap; size-adjust: 106%;
+}
+@font-face {
+  font-family: "Source Sans 3";
+  src: url("../lettertypes/source-sans-3-400-italic.woff") format("woff");
+  font-weight: 400; font-style: italic; font-display: swap; size-adjust: 106%;
+}
+@font-face {
+  font-family: "Source Sans 3";
+  src: url("../lettertypes/source-sans-3-700-italic.woff") format("woff");
+  font-weight: 700; font-style: italic; font-display: swap; size-adjust: 106%;
+}
+
+/* ===== KLEUREN ===== */
+:root {
+  --blue: #005293;       /* Zweeds blauw */
+  --blue-dark: #003366;  /* donkerblauw: voettekst */
+  --band: #e8edf4;       /* lichte band */
+  --rij: #eef3f8;        /* lichte rij-achtergrond */
+  --ink: #1d262b;        /* tekst */
+  --muted: #3d484e;      /* gedempte tekst */
+  --line-soft: #d4d4d4;
+  --white: #ffffff;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--white);
+  color: var(--ink);
+  font-family: "Source Sans 3", Arial, sans-serif;
+  line-height: 1.65;
+}
+
+h1, h2, h3, h4 { font-weight: 600; }
+a { color: var(--blue); }
+
+a:focus-visible, button:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 2px;
+}
+header a:focus-visible, footer a:focus-visible { outline-color: var(--white); }
+
+/* Inhoudsbreedte: header, inhoud en footer staan op dezelfde lijn
+   (1240 px breed, 32 px zijruimte binnen die breedte). */
+.wrap {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* ===== KOP EN MENU ===== */
+header {
+  background: var(--blue);
+  color: var(--white);
+}
+
+header .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 32px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.logo {
+  color: var(--white);
+  font-size: 1.7rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+}
+
+#hoofdmenu ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 28px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#hoofdmenu a {
+  color: var(--white);
+  text-decoration: none;
+}
+#hoofdmenu a:hover { text-decoration: underline; }
+#hoofdmenu a[aria-current="page"] {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* ===== TEKSTPAGINA'S =====
+   Kolom van 760 px, links uitgelijnd, 14 px rechts van de linkerrand
+   van het logo (zoals De Suecofiel). */
+main { padding: 18px 0 40px; }
+
+.tekstpagina {
+  max-width: 760px;
+  padding: 0 14px;
+}
+
+.tekstpagina h1 {
+  margin: 0 0 12px;
+  font-size: clamp(1.8rem, 4vw, 2.2rem);
+  line-height: 1.2;
+}
+
+.tekstpagina h2 {
+  margin: 32px 0 6px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--line-soft);
+  font-size: 1.35rem;
+}
+
+/* Pagina's met volle inhoudsbreedte (zoals Alle steden) */
+.breedpagina h1 {
+  margin: 0 0 12px;
+  font-size: clamp(1.8rem, 4vw, 2.2rem);
+  line-height: 1.2;
+}
+
+/* ===== VOETTEKST ===== */
+footer {
+  background: var(--blue-dark);
+  color: #dce7f2;
+  font-size: .95rem;
+}
+
+footer .wrap { padding-top: 36px; }
+
+footer a { color: inherit; text-decoration: none; }
+footer a:hover { color: var(--white); text-decoration: underline; }
+
+.voettekst-kolommen {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr;
+  gap: 30px 40px;
+}
+
+.voettekst-naam {
+  margin: 0 0 10px;
+  color: var(--white);
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.voettekst-merk p { margin: 0 0 10px; max-width: 420px; }
+
+/* De regel "Van dezelfde maker" staat lager dan de kolommen ernaast */
+.voettekst-merk .voettekst-maker { margin-top: 72px; max-width: none; }
+
+footer h2 {
+  margin: 4px 0 10px;
+  color: var(--white);
+  font-size: .85rem;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+}
+
+footer ul { margin: 0; padding: 0; list-style: none; }
+footer li { margin-bottom: 6px; }
+
+.voettekst-onder {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  margin-top: 28px;
+  padding: 28px 0 40px;
+  border-top: 1px solid rgba(255, 255, 255, .35);
+  font-size: .8rem;
+}
+.voettekst-onder p { margin: 0; }
+.voettekst-onder-links { display: flex; gap: 18px; }
+
+@media (max-width: 800px) {
+  .wrap { padding: 0 20px; }
+  .voettekst-kolommen { grid-template-columns: 1fr 1fr; }
+  .voettekst-merk { grid-column: 1 / -1; }
+  .voettekst-merk .voettekst-maker { margin-top: 10px; }
+}

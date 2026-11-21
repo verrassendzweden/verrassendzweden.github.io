@@ -1,0 +1,26 @@
+# Voorlopige lijst met voorbeeldsteden (regio-indeling en lanceringssteden staan nog open).
+# Volgorde: Zweeds alfabet, å, ä en ö na de z.
+- naam: Helsingborg
+  regio: Skåne
+  bestand: helsingborg
+  regel: "[korte regel]"
+- naam: Lund
+  regio: Skåne
+  bestand: lund
+  regel: "[korte regel]"
+- naam: Sigtuna
+  regio: Uppland
+  bestand: sigtuna
+  regel: "[korte regel]"
+- naam: Uppsala
+  regio: Uppland
+  bestand: uppsala
+  regel: "[korte regel]"
+- naam: Linköping
+  regio: Östergötland
+  bestand: linkoping
+  regel: "[korte regel]"
+- naam: Norrköping
+  regio: Östergötland
+  bestand: norrkoping
+  regel: "[korte regel]"
