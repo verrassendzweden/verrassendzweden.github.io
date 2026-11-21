@@ -436,6 +436,8 @@ main.home { padding: 0; }
   .band-licht, .praktisch { padding: 56px 0 64px; }
   .hero-slides { height: 360px; }
   .sectie-kop h2, .praktisch-titel { font-size: 30px; }
+  /* Mobiel: alleen de eerste drie stadstegels tonen */
+  .tegel:nth-child(n+4) { display: none; }
 }
 @media (prefers-reduced-motion: reduce) {
   .hero-slide, .hero-slide.actief, .hero-stip { transition: none; }
