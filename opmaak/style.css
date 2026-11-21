@@ -222,6 +222,8 @@ main { padding: 18px 0 40px; }
   line-height: 1.2;
 }
 
+.bijgewerkt { margin-top: 32px; color: var(--muted); font-size: .85rem; }
+
 .tekstpagina h2 {
   margin: 32px 0 6px;
   padding-bottom: 6px;
@@ -253,6 +255,8 @@ footer a:hover { color: var(--white); text-decoration: underline; }
   grid-template-columns: 1.6fr 1fr 1fr;
   gap: 30px 40px;
 }
+/* Met de wisselkoers (zie scripts/wisselkoers.js) krijgt de voettekst een vierde kolom */
+.voettekst-kolommen.met-koers { grid-template-columns: 1.6fr 1fr 1fr 1.3fr; }
 
 .voettekst-naam {
   margin: 0 0 10px;
@@ -266,6 +270,7 @@ footer a:hover { color: var(--white); text-decoration: underline; }
 
 /* De regel "Van dezelfde maker" staat lager dan de kolommen ernaast */
 .voettekst-merk .voettekst-maker { margin-top: 72px; max-width: none; }
+.voettekst-maker a { color: var(--white); text-decoration: underline; text-underline-offset: 3px; }
 
 footer h2 {
   margin: 4px 0 10px;
@@ -291,10 +296,39 @@ footer li { margin-bottom: 6px; }
 .voettekst-onder p { margin: 0; }
 .voettekst-onder-links { display: flex; gap: 18px; }
 
+/* Wisselkoers in de voettekst (de blokken worden door scripts/wisselkoers.js toegevoegd) */
+.voettekst-koers p { margin: 0 0 6px; }
+.koers-reken { display: flex; align-items: flex-end; gap: 10px; margin: 14px 0 8px; }
+.koers-reken label {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+  font-size: .75rem;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+}
+.koers-reken input {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid rgba(255, 255, 255, .35);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, .08);
+  color: var(--white);
+  font: inherit;
+  font-size: 1rem;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.koers-pijl { padding-bottom: 8px; }
+.koers-bron { font-size: .8rem; }
+footer input:focus-visible { outline: 3px solid var(--white); outline-offset: 2px; }
+
 @media (max-width: 800px) {
   .wrap { padding: 0 20px; }
-  .voettekst-kolommen { grid-template-columns: 1fr 1fr; }
-  .voettekst-merk { grid-column: 1 / -1; }
+  .voettekst-kolommen, .voettekst-kolommen.met-koers { grid-template-columns: 1fr 1fr; }
+  .voettekst-merk, .voettekst-koers { grid-column: 1 / -1; }
   .voettekst-merk .voettekst-maker { margin-top: 10px; }
 }
 

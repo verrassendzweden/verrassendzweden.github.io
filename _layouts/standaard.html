@@ -75,9 +75,13 @@
           <p class="voettekst-maker">Van dezelfde maker: <a href="https://suecofiel.github.io">De Suecofiel</a>, kennisplatform over Zweden.</p>
         </div>
 
+        <!-- De drie grootste steden (naar inwoneraantal) en Alle steden -->
         <nav aria-label="Steden">
           <h2>Steden</h2>
           <ul>
+            <li><a href="{{ '/stockholm.html' | relative_url }}">Stockholm</a></li>
+            <li><a href="{{ '/gotenburg.html' | relative_url }}">Gotenburg</a></li>
+            <li><a href="{{ '/malmo.html' | relative_url }}">Malmö</a></li>
             <li><a href="{{ '/steden.html' | relative_url }}">Alle steden</a></li>
           </ul>
         </nav>
@@ -95,6 +99,7 @@
         <div class="voettekst-onder-links">
           <a href="{{ '/over.html' | relative_url }}">Over de site</a>
           <a href="{{ '/over.html#disclaimer' | relative_url }}">Disclaimer</a>
+          <a href="{{ '/privacy.html' | relative_url }}">Privacy</a>
           <a href="#">Terug naar boven ↑</a>
         </div>
       </div>
@@ -120,6 +125,7 @@
     ];
   </script>
   <script src="{{ '/scripts/zoeken.js' | relative_url }}" defer></script>
+  <script src="{{ '/scripts/wisselkoers.js' | relative_url }}" defer></script>
 
 </body>
 </html>

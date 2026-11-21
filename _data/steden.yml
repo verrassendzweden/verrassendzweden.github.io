@@ -1,6 +1,9 @@
-# Voorlopige lijst met voorbeeldsteden (regio-indeling en lanceringssteden staan nog open).
+# Voorlopige lijst met voorbeeldsteden (lanceringssteden staan nog open).
 # De korte regels zijn voorlopig en worden later aangepast.
-# Volgorde: Zweeds alfabet, å, ä en ö na de z.
+# De regio is het Zweedse län (zoiets als een provincie), zonder het woord "län".
+# Volgorde: eerst de regio's in het Zweeds alfabet (å, ä en ö na de z),
+# daarbinnen de steden alfabetisch. De pagina Alle steden volgt deze volgorde.
+# Optioneel: zoekwoorden (andere spellingen), alleen voor de zoekfunctie.
 - naam: Helsingborg
   regio: Skåne
   bestand: helsingborg
@@ -9,14 +12,27 @@
   regio: Skåne
   bestand: lund
   regel: "Middeleeuwse kathedraal en studentenleven"
+- naam: Malmö
+  regio: Skåne
+  bestand: malmo
+  regel: "Derde stad van Zweden, met een directe verbinding naar Kopenhagen"
 - naam: Sigtuna
-  regio: Uppland
+  regio: Stockholm
   bestand: sigtuna
   regel: "Een van de oudste steden van Zweden"
+- naam: Stockholm
+  regio: Stockholm
+  bestand: stockholm
+  regel: "De hoofdstad, verspreid over eilanden en water"
 - naam: Uppsala
-  regio: Uppland
+  regio: Uppsala
   bestand: uppsala
   regel: "Universiteitsstad met een grote kathedraal"
+- naam: Gotenburg
+  regio: Västra Götaland
+  bestand: gotenburg
+  regel: "Tweede stad van Zweden met de grootste haven van Scandinavië"
+  zoekwoorden: "Göteborg Gothenburg"
 - naam: Linköping
   regio: Östergötland
   bestand: linkoping
