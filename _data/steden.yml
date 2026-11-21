@@ -1,26 +1,27 @@
 # Voorlopige lijst met voorbeeldsteden (regio-indeling en lanceringssteden staan nog open).
+# De korte regels zijn voorlopig en worden later aangepast.
 # Volgorde: Zweeds alfabet, å, ä en ö na de z.
 - naam: Helsingborg
   regio: Skåne
   bestand: helsingborg
-  regel: "[korte regel]"
+  regel: "Havenstad met uitzicht over het water"
 - naam: Lund
   regio: Skåne
   bestand: lund
-  regel: "[korte regel]"
+  regel: "Middeleeuwse kathedraal en studentenleven"
 - naam: Sigtuna
   regio: Uppland
   bestand: sigtuna
-  regel: "[korte regel]"
+  regel: "Een van de oudste steden van Zweden"
 - naam: Uppsala
   regio: Uppland
   bestand: uppsala
-  regel: "[korte regel]"
+  regel: "Universiteitsstad met een grote kathedraal"
 - naam: Linköping
   regio: Östergötland
   bestand: linkoping
-  regel: "[korte regel]"
+  regel: "Oude houten huizen in Gamla Linköping"
 - naam: Norrköping
   regio: Östergötland
   bestand: norrkoping
-  regel: "[korte regel]"
+  regel: "Industrieel verleden langs de rivier"
