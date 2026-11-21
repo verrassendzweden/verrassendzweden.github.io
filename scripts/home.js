@@ -1,8 +1,9 @@
 /* ===== HOMEPAGINA: wisselende uitgelichte stad =====
    Elke 8 seconden komt de volgende stad in beeld (zacht overvloeien).
-   Stopt zolang de muis op de kaart staat of als de bezoeker pauzeert.
-   Bij "beperkte beweging" in de instellingen van het apparaat blijft
-   alleen de eerste stad staan. Zonder JavaScript ook de eerste stad. */
+   Stopt zolang de muis of het toetsenbord op het blok staat, of als de
+   bezoeker op Pauzeer klikt. Bij "beperkte beweging" in de instellingen
+   van het apparaat blijft alleen de eerste stad staan. Zonder
+   JavaScript ook de eerste stad. */
 (function () {
   var hero = document.querySelector('[data-hero]');
   if (!hero) return;
@@ -12,14 +13,14 @@
   var pauzeknop = hero.querySelector('.hero-pauze');
   var minderBeweging = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  if (slides.length < 2 || minderBeweging) return; // bediening blijft verborgen
+  if (slides.length < 2 || minderBeweging) return; // pauzeknop blijft verborgen
 
   hero.classList.add('met-js');
 
   var huidige = 0;
   var timer = null;
   var gepauzeerd = false;
-  var muisErop = false;
+  var erop = false;
 
   function toon(n) {
     huidige = (n + slides.length) % slides.length;
@@ -33,25 +34,23 @@
 
   function start() {
     stop();
-    if (gepauzeerd || muisErop) return;
+    if (gepauzeerd || erop) return;
     timer = setInterval(function () { toon(huidige + 1); }, 8000);
   }
 
-  stippen.forEach(function (stip, i) {
-    stip.addEventListener('click', function () { toon(i); start(); });
-  });
-
   pauzeknop.addEventListener('click', function () {
     gepauzeerd = !gepauzeerd;
-    pauzeknop.textContent = gepauzeerd ? 'Hervat' : 'Pauzeer';
-    pauzeknop.setAttribute('aria-label', gepauzeerd ? 'Hervat het wisselen' : 'Pauzeer het wisselen');
+    pauzeknop.textContent = gepauzeerd ? 'Afspelen' : 'Pauzeer';
+    pauzeknop.setAttribute('aria-label', gepauzeerd
+      ? 'Wisselen van uitgelichte stad hervatten'
+      : 'Wisselen van uitgelichte stad pauzeren');
     start();
   });
 
-  hero.addEventListener('mouseenter', function () { muisErop = true; stop(); });
-  hero.addEventListener('mouseleave', function () { muisErop = false; start(); });
-  hero.addEventListener('focusin', function () { muisErop = true; stop(); });
-  hero.addEventListener('focusout', function () { muisErop = false; start(); });
+  hero.addEventListener('mouseenter', function () { erop = true; stop(); });
+  hero.addEventListener('mouseleave', function () { erop = false; start(); });
+  hero.addEventListener('focusin', function () { erop = true; stop(); });
+  hero.addEventListener('focusout', function () { erop = false; start(); });
 
   start();
 })();

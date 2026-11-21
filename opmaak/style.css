@@ -206,53 +206,57 @@ footer li { margin-bottom: 6px; }
   .voettekst-merk .voettekst-maker { margin-top: 10px; }
 }
 
-/* ===== HOMEPAGINA =====
+/* ===== HOMEPAGINA (maten uit de goedgekeurde mockup) =====
    Banden over de volle breedte, wisselend ritme:
    blauw (kop), wit (hero), licht, wit, donkerblauw (voettekst). */
 main.home { padding: 0; }
 
 .regio-label {
-  margin: 0 0 2px;
-  color: var(--muted);
-  font-size: .8rem;
-  font-weight: 600;
-  letter-spacing: .5px;
+  margin: 0 0 4px;
+  color: #4a5760;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: .06em;
   text-transform: uppercase;
 }
 
-/* Fotovak: grijsblauwe plek met "Foto volgt" zolang er geen foto is */
-.foto-vak {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #cfd9e6;
-  color: var(--muted);
-  overflow: hidden;
-}
-.foto-vak img { display: block; width: 100%; height: 100%; object-fit: cover; }
-
-.foto-bron { margin: 6px 0 0; color: var(--muted); font-size: .78rem; }
-
 /* Hero (wit) */
-.hero { background: var(--white); padding: 48px 0; }
+.hero { padding: 64px 0 56px; }
 .hero-binnen {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px 56px;
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
+  gap: 48px;
 }
-.hero-tekst { padding-left: 14px; }
-.hero h1 {
+.hero-tekst { flex: 1 1 400px; min-width: 0; }
+.hero-oog {
   margin: 0 0 16px;
-  font-size: clamp(2rem, 4.6vw, 3rem);
-  line-height: 1.15;
+  color: var(--blue);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
 }
-.hero-tekst p { margin: 0; max-width: 520px; font-size: 1.15rem; }
+.hero h1 {
+  margin: 0 0 24px;
+  color: var(--blue-dark);
+  font-size: clamp(36px, 5vw, 58px);
+  line-height: 1.08;
+  letter-spacing: -.015em;
+}
+.hero-intro { margin: 0; max-width: 34em; color: var(--muted); font-size: 21px; }
 
-.hero-kaart { background: var(--band); padding: 16px; }
-.hero-slides { display: grid; }
+.hero-kolom { flex: 1 1 460px; min-width: 0; }
+.hero-slides {
+  display: grid;
+  height: 430px;
+  border-radius: 22px;
+  overflow: hidden;
+  background: #cfdcec;
+}
 .hero-slide {
   grid-area: 1 / 1;
+  position: relative;
   opacity: 0;
   visibility: hidden;
   transition: opacity 1s ease, visibility 0s linear 1s;
@@ -262,45 +266,93 @@ main.home { padding: 0; }
   visibility: visible;
   transition: opacity 1s ease, visibility 0s;
 }
-.hero-foto { aspect-ratio: 16 / 10; }
-.hero-onder { padding: 12px 4px 4px; }
-.hero-onder h2 { margin: 0 0 4px; font-size: 1.5rem; }
-.hero-onder p { margin: 0 0 12px; }
-.hero-onder .regio-label { margin-bottom: 2px; }
-
+.hero-slide:nth-child(even) { background: #dce7f2; }
+.hero-foto {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  font-size: 18px;
+}
+.hero-foto img { width: 100%; height: 100%; object-fit: cover; }
+.hero-bron {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  padding: 3px 10px;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, .65);
+  color: var(--white);
+  font-size: 13px;
+}
+.hero-label {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  max-width: 380px;
+  padding: 18px 22px;
+  border-radius: 14px;
+  background: var(--white);
+}
+.hero-label .regio-label { margin: 0 0 2px; }
+.hero-stadnaam {
+  margin: 0 0 12px;
+  color: var(--blue-dark);
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1.2;
+}
 .knop {
   display: inline-block;
-  padding: 8px 18px;
+  min-width: 180px;
+  padding: 10px 22px;
+  border-radius: 10px;
   background: var(--blue);
   color: var(--white);
+  font-size: 17px;
   font-weight: 600;
+  text-align: center;
   text-decoration: none;
+  white-space: nowrap;
 }
 .knop:hover { background: var(--blue-dark); }
 
-/* Stipjes en pauzeknop: alleen zichtbaar als er JavaScript is */
-.hero-bediening { display: none; align-items: center; justify-content: space-between; margin-top: 10px; }
-.hero-kaart.met-js .hero-bediening { display: flex; }
-.hero-stippen { display: flex; gap: 8px; }
+.hero-bediening {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 16px;
+}
+.hero-stippen { display: flex; align-items: center; gap: 8px; }
 .hero-stip {
-  width: 12px; height: 12px;
-  padding: 0;
-  border: 2px solid var(--blue);
-  border-radius: 50%;
-  background: transparent;
-  cursor: pointer;
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background: var(--blue);
+  opacity: .45;
+  transition: width .4s ease, opacity .4s ease;
 }
-.hero-stip.actief { background: var(--blue); }
+.hero-stip.actief { width: 30px; opacity: 1; }
+/* De pauzeknop werkt alleen met JavaScript, dus is zonder verborgen */
 .hero-pauze {
-  padding: 2px 4px;
-  border: 0;
-  background: none;
-  color: var(--blue);
+  display: none;
+  padding: 6px 14px;
+  border: 1px solid #b9c7d9;
+  border-radius: 999px;
+  background: var(--white);
+  color: var(--blue-dark);
   font: inherit;
-  font-size: .9rem;
-  text-decoration: underline;
+  font-size: 16px;
+  font-weight: 600;
   cursor: pointer;
 }
+.hero-pauze:hover { border-color: var(--blue); }
+.hero-kolom.met-js .hero-pauze { display: inline-flex; }
 
 /* Sectiekoppen: titel links, link rechts op dezelfde regel */
 .sectie-kop {
@@ -308,47 +360,83 @@ main.home { padding: 0; }
   flex-wrap: wrap;
   align-items: baseline;
   justify-content: space-between;
-  gap: 4px 24px;
-  margin-bottom: 20px;
-  padding: 0 14px;
+  gap: 8px 24px;
+  margin: 0 0 12px;
 }
-.sectie-kop h2 { margin: 0; font-size: 1.6rem; }
-.sectie-kop a { font-weight: 600; }
+.sectie-kop h2, .praktisch-titel {
+  margin: 0;
+  color: var(--blue-dark);
+  font-size: 38px;
+  line-height: 1.15;
+}
+.alle-link { font-size: 19px; font-weight: 600; text-decoration: none; }
+.alle-link:hover { text-decoration: underline; text-underline-offset: 5px; }
+.sectie-intro { margin: 0 0 40px; max-width: 40em; color: var(--muted); font-size: 19px; }
+.praktisch-titel { margin-bottom: 12px; }
 
 /* Steden om te ontdekken (lichte band, witte tegels) */
-.band-licht { background: var(--band); padding: 44px 0; }
-.tegels { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; padding: 0 14px; }
+.band-licht { padding: 80px 0 96px; background: var(--band); }
+.tegels {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 28px;
+}
 .tegel {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid #d8dfe8;
+  border-radius: 18px;
   background: var(--white);
   color: var(--ink);
   text-decoration: none;
+  transition: border-color .15s ease;
 }
-.tegel:hover h3 { text-decoration: underline; }
-.tegel-foto { aspect-ratio: 3 / 2; }
-.tegel-tekst { padding: 14px 16px 18px; }
-.tegel-tekst h3 { margin: 0 0 4px; color: var(--blue); font-size: 1.25rem; }
-.tegel-tekst p:last-child { margin: 0; }
+.tegel:hover { border-color: var(--blue); }
+.tegel:hover h3 { text-decoration: underline; text-underline-offset: 4px; }
+.tegel-foto {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  background: #dce7f2;
+  color: var(--muted);
+  font-size: 16px;
+}
+.tegel-foto.twee { background: #cfdcec; }
+.tegel-foto img { width: 100%; height: 100%; object-fit: cover; }
+.tegel-tekst { padding: 20px 24px 26px; }
+.tegel-tekst h3 { margin: 0 0 6px; color: var(--blue-dark); font-size: 26px; }
+.tegel-regel { margin: 0; color: var(--muted); font-size: 18px; }
 
 /* Praktisch voor je reis (wit, kaarten in lichte tint) */
-.praktisch { background: var(--white); padding: 44px 0 56px; }
-.kaarten { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; padding: 0 14px; }
+.praktisch { padding: 80px 0 96px; }
+.kaarten {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 28px;
+}
 .kaart {
   display: block;
-  padding: 22px 24px;
+  padding: 28px;
+  border: 1px solid var(--band);
+  border-radius: 18px;
   background: var(--band);
   color: var(--ink);
   text-decoration: none;
+  transition: border-color .15s ease;
 }
-.kaart:hover h3 { text-decoration: underline; }
-.kaart h3 { margin: 0 0 6px; color: var(--blue); font-size: 1.25rem; }
-.kaart p { margin: 0; }
+.kaart:hover { border-color: var(--blue); }
+.kaart:hover h3 { text-decoration: underline; text-underline-offset: 4px; }
+.kaart h3 { margin: 0 0 8px; color: var(--blue-dark); font-size: 24px; }
+.kaart p { margin: 0; color: var(--muted); font-size: 18px; }
 
 @media (max-width: 800px) {
-  .hero { padding: 32px 0; }
-  .hero-binnen { grid-template-columns: 1fr; }
-  .tegels, .kaarten { grid-template-columns: 1fr; }
+  .hero { padding: 40px 0 36px; }
+  .band-licht, .praktisch { padding: 56px 0 64px; }
+  .hero-slides { height: 360px; }
+  .sectie-kop h2, .praktisch-titel { font-size: 30px; }
 }
-@media (min-width: 801px) and (max-width: 1000px) {
-  .tegels { grid-template-columns: repeat(2, 1fr); }
+@media (prefers-reduced-motion: reduce) {
+  .hero-slide, .hero-slide.actief, .hero-stip { transition: none; }
 }
