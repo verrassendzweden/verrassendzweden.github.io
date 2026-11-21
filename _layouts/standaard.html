@@ -26,13 +26,25 @@
   <header>
     <div class="wrap">
       <a class="logo" href="{{ '/' | relative_url }}">Verrassend Zweden</a>
-      <nav id="hoofdmenu" aria-label="Hoofdnavigatie">
-        <ul>
-          <li><a href="{{ '/steden.html' | relative_url }}"{% if page.menu == "steden" %} aria-current="page"{% endif %}>Steden</a></li>
-          <li><a href="{{ '/reisinformatie.html' | relative_url }}"{% if page.menu == "reisinformatie" %} aria-current="page"{% endif %}>Reisinformatie</a></li>
-          <li><a href="{{ '/over.html' | relative_url }}"{% if page.menu == "over" %} aria-current="page"{% endif %}>Over de site</a></li>
-        </ul>
-      </nav>
+      <div class="kop-rechts">
+        <nav id="hoofdmenu" aria-label="Hoofdnavigatie">
+          <ul>
+            <li><a href="{{ '/steden.html' | relative_url }}"{% if page.menu == "steden" %} aria-current="page"{% endif %}>Steden</a></li>
+            <li><a href="{{ '/reisinformatie.html' | relative_url }}"{% if page.menu == "reisinformatie" %} aria-current="page"{% endif %}>Reisinformatie</a></li>
+            <li><a href="{{ '/over.html' | relative_url }}"{% if page.menu == "over" %} aria-current="page"{% endif %}>Over de site</a></li>
+          </ul>
+        </nav>
+
+        <!-- Zoekveld: zoekt in de steden en de losse pagina's van deze site.
+             Het vergrootglas klapt het veld uit (ook op mobiel). -->
+        <div class="search" role="search">
+          <input type="search" id="zoekveld" placeholder="Zoeken…" aria-label="Zoeken op Verrassend Zweden" autocomplete="off" aria-controls="zoekresultaten">
+          <button class="zoekknop" type="button" aria-label="Zoeken" aria-expanded="false" aria-controls="zoekveld">
+            <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="8.3" cy="8.3" r="6"/><path d="M13 13l5 5"/></svg>
+          </button>
+          <ul id="zoekresultaten" class="zoekresultaten" hidden></ul>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -88,6 +100,26 @@
       </div>
     </div>
   </footer>
+
+  <!-- ===== ZOEKLIJST =====
+       De steden komen automatisch uit _data/steden.yml: een nieuwe stad
+       staat daar dus vanzelf ook in de zoekfunctie.
+       Bij een stad kan in steden.yml een extra regel
+         zoekwoorden: "goteborg"
+       worden toegevoegd (andere spellingen of bijnamen).
+       Een nieuwe losse pagina (geen stad)? Kopieer één regel uit het
+       tweede deel, plak hem eronder en pas de tekst aan. -->
+  <script>
+    var zoekindex = [
+    {% for s in site.data.steden %}
+      { titel: {{ s.naam | jsonify }}, label: {{ s.regio | jsonify }}, tekst: {{ s.regel | default: '' | append: ' ' | append: s.zoekwoorden | jsonify }}, url: {{ '/' | append: s.bestand | append: '.html' | relative_url | jsonify }} },
+    {% endfor %}
+      { titel: "Alle steden", label: "Pagina", tekst: "overzicht steden regio", url: {{ '/steden.html' | relative_url | jsonify }} },
+      { titel: "Reisinformatie", label: "Pagina", tekst: "reizen vervoer wanneer gaan vliegen trein auto seizoenen daglicht weer", url: {{ '/reisinformatie.html' | relative_url | jsonify }} },
+      { titel: "Over de site", label: "Pagina", tekst: "over disclaimer maker", url: {{ '/over.html' | relative_url | jsonify }} }
+    ];
+  </script>
+  <script src="{{ '/scripts/zoeken.js' | relative_url }}" defer></script>
 
 </body>
 </html>
