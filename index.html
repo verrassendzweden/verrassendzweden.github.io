@@ -42,7 +42,7 @@ tegels:
         {% for stad in site.data.steden %}{% if stad.foto %}
         <div class="hero-slide{% if eerste %} actief{% endif %}" data-sleutel="{{ stad.bestand }}" data-naam="{{ stad.naam }}">
           <div class="hero-foto">
-            <img data-src="{{ stad.herofoto | default: stad.foto | relative_url }}" alt="{{ stad.naam }}" decoding="async">
+            <img data-src="{{ stad.herofoto | default: stad.foto | relative_url }}" alt="{{ stad.naam }}" decoding="async"{% if stad.herofotopositie %} style="object-position: {{ stad.herofotopositie }}"{% endif %}>
             {% if eerste %}<noscript><img src="{{ stad.herofoto | default: stad.foto | relative_url }}" alt="{{ stad.naam }}"></noscript>{% endif %}
             <div class="hero-label">
               <p class="regio-label">{{ stad.regio }}</p>
