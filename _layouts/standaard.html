@@ -117,7 +117,7 @@
   <script>
     var zoekindex = [
     {% for s in site.data.steden %}
-      { titel: {{ s.naam | jsonify }}, label: {{ "Regio " | append: s.regio | jsonify }}, tekst: {{ s.regel | default: '' | append: ' ' | append: s.zoekwoorden | jsonify }}, url: {{ '/' | append: s.bestand | append: '.html' | relative_url | jsonify }} },
+      { titel: {{ s.naam | jsonify }}, label: {{ s.regio | jsonify }}, tekst: {{ s.regel | default: '' | append: ' ' | append: s.zoekwoorden | jsonify }}, url: {{ '/' | append: s.bestand | append: '.html' | relative_url | jsonify }} },
     {% endfor %}
       { titel: "Alle steden", label: "Pagina", tekst: "overzicht steden regio", url: {{ '/steden.html' | relative_url | jsonify }} },
       { titel: "Reisinformatie", label: "Pagina", tekst: "reizen vervoer wanneer gaan vliegen trein auto seizoenen daglicht weer", url: {{ '/reisinformatie.html' | relative_url | jsonify }} },

@@ -1,17 +1,17 @@
 ---
 layout: standaard
 title: Alle steden
-description: Alle Zweedse steden op Verrassend Zweden, per regio.
+description: Alle Zweedse steden op Verrassend Zweden, per län (provincie).
 menu: steden
 klasse: breedpagina
 ---
 
 <h1>Alle steden</h1>
-<p>De regio's staan in Zweedse alfabetische volgorde, waarbij å, ä en ö na de z komen, dus Östergötland staat onderaan.</p>
+<p>Een län is een Zweedse provincie. De steden staan per län, in Zweedse alfabetische volgorde, waarbij å, ä en ö na de z komen, dus Östergötlands län staat onderaan.</p>
 
 {% assign regios = site.data.steden | group_by: "regio" %}
 {% for regio in regios %}
-<h2>Regio {{ regio.name }}</h2>
+<h2>{{ regio.name }}</h2>
 <ul>
   {% for stad in regio.items %}
   <li>{{ stad.naam }}: {{ stad.regel }}</li>

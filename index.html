@@ -50,13 +50,13 @@ tegels:
         <div class="hero-slide{% if forloop.first %} actief{% endif %}">
           <div class="hero-foto">
             {% if stad.foto %}<img src="{{ stad.foto | relative_url }}" alt="{{ stad.naam }}">{% else %}<span>Foto {{ stad.naam }}</span>{% endif %}
+            <div class="hero-label">
+              <p class="regio-label">{{ stad.regio }}</p>
+              <p class="hero-stadnaam">{{ stad.naam }}</p>
+              <a class="knop" href="{{ '/' | append: stad.bestand | append: '.html' | relative_url }}">Bekijk de stad →</a>
+            </div>
           </div>
           <div class="hero-bron">{% if stad.foto %}Foto: {{ stad.fotomaker }} · <a href="{{ stad.fotolicentie_url }}">{{ stad.fotolicentie }}</a> · <a href="{{ stad.fotobron_url }}">Wikimedia Commons</a> · bijgesneden{% else %}Foto: [maker], [licentie]{% endif %}</div>
-          <div class="hero-label">
-            <p class="regio-label">{{ stad.regio }}</p>
-            <p class="hero-stadnaam">{{ stad.naam }}</p>
-            <a class="knop" href="{{ '/' | append: stad.bestand | append: '.html' | relative_url }}">Bekijk de stad →</a>
-          </div>
         </div>
         {% endfor %}
       </div>
