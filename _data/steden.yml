@@ -8,6 +8,7 @@
 # Optioneel: foto (zie Helsingborg en Uppsala), met fotomaker, fotolicentie,
 # fotolicentie_url (link naar de licentietekst) en fotobron_url (link naar de bronpagina).
 # Optioneel: fotowijziging (wat er aan de foto is veranderd; standaard "bijgesneden").
+# Optioneel: herofoto (een andere uitsnede van de foto voor de uitgelichte foto bovenaan de homepage).
 # Een eigen foto heeft alleen het veld foto: het bijschrift wordt dan "Foto: Verrassend Zweden".
 - naam: Helsingborg
   regio: Skåne län
@@ -61,6 +62,7 @@
   regel: "Tweede stad van Zweden met de grootste haven van Scandinavië"
   zoekwoorden: "Göteborg Gothenburg"
   foto: "/fotos/gotenburg.jpg"
+  herofoto: "/fotos/gotenburg-hero.jpg"
 - naam: Linköping
   regio: Östergötlands län
   bestand: linkoping
