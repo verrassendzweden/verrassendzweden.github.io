@@ -416,7 +416,7 @@ main.home { padding: 0; }
   position: absolute;
   left: 16px;
   bottom: 16px;
-  width: 250px;
+  width: 270px;
   max-width: calc(100% - 32px);
   box-sizing: border-box;
   padding: 12px 16px;
@@ -436,9 +436,9 @@ main.home { padding: 0; }
 .hero-stadnaam {
   margin: 0 0 8px;
   color: var(--blue-dark);
-  font-size: 22px;
+  font-size: 26px;
   font-weight: 600;
-  line-height: 26px;
+  line-height: 30px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -460,15 +460,27 @@ main.home { padding: 0; }
 .knop:hover { background: var(--blue-dark); }
 
 .hero-bediening {
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  margin-top: 16px;
+  margin-top: 6px;
 }
-.hero-stippen { display: flex; align-items: center; gap: 8px; }
+/* De bolletjes en de pauzeknop werken alleen met JavaScript, dus zijn zonder verborgen */
+.hero-kolom.met-js .hero-bediening { display: flex; }
+.hero-stippen { display: flex; align-items: center; }
+/* Elk bolletje is een knop met een klikvlak van minstens 24 bij 24 px */
 .hero-stip {
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+.hero-stip span {
+  display: block;
   width: 10px;
   height: 10px;
   border-radius: 5px;
@@ -476,8 +488,10 @@ main.home { padding: 0; }
   opacity: .45;
   transition: width .4s ease, opacity .4s ease;
 }
-.hero-stip.actief { width: 30px; opacity: 1; }
-/* De pauzeknop werkt alleen met JavaScript, dus is zonder verborgen */
+.hero-stip:hover span { opacity: .75; }
+.hero-stip.actief span { width: 30px; opacity: 1; }
+.hero-stip:focus-visible { border-radius: 8px; }
+/* De pauzeknop is er alleen als de stad vanzelf wisselt */
 .hero-pauze {
   display: none;
   padding: 6px 14px;
@@ -491,7 +505,7 @@ main.home { padding: 0; }
   cursor: pointer;
 }
 .hero-pauze:hover { border-color: var(--blue); }
-.hero-kolom.met-js .hero-pauze { display: inline-flex; }
+.hero-kolom.met-auto .hero-pauze { display: inline-flex; }
 
 /* Sectiekoppen: titel links, link rechts op dezelfde regel */
 .sectie-kop {
@@ -576,8 +590,8 @@ main.home { padding: 0; }
   .hero { padding: 40px 0 36px; }
   .band-licht, .praktisch { padding: 56px 0 64px; }
   .hero-foto { height: 360px; }
-  .hero-label { left: 12px; bottom: 12px; width: 230px; padding: 10px 14px; }
-  .hero-stadnaam { font-size: 20px; }
+  .hero-label { left: 12px; bottom: 12px; width: 250px; padding: 10px 14px; }
+  .hero-stadnaam { font-size: 22px; line-height: 26px; }
   .sectie-kop h2, .praktisch-titel { font-size: 30px; }
   /* Mobiel: alleen de eerste drie stadstegels tonen */
   .tegel:nth-child(n+4) { display: none; }
@@ -587,5 +601,5 @@ main.home { padding: 0; }
   .alle-knop { display: block; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .hero-slide, .hero-slide.actief, .hero-stip { transition: none; }
+  .hero-slide, .hero-slide.actief, .hero-stip span { transition: none; }
 }

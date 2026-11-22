@@ -62,8 +62,8 @@ tegels:
       </div>
 
       <div class="hero-bediening">
-        <div class="hero-stippen" aria-hidden="true">
-          {% for b in page.hero %}<span class="hero-stip{% if forloop.first %} actief{% endif %}"></span>{% endfor %}
+        <div class="hero-stippen">
+          {% for b in page.hero %}{% assign stip = site.data.steden | where: "bestand", b | first %}<button type="button" class="hero-stip{% if forloop.first %} actief{% endif %}" aria-label="Toon {{ stip.naam }}"><span></span></button>{% endfor %}
         </div>
         <button type="button" class="hero-pauze" aria-label="Wisselen van uitgelichte stad pauzeren">Pauzeer</button>
       </div>
