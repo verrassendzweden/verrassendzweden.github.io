@@ -412,7 +412,11 @@ main.home { padding: 0; }
   background: rgba(0, 0, 0, .65);
   color: var(--white);
   font-size: 13px;
+  line-height: 1.4;
+  max-width: calc(100% - 32px);
 }
+.hero-bron a { color: var(--white); text-decoration: underline; text-underline-offset: 2px; }
+.hero-bron a:focus-visible { outline: 2px solid var(--white); outline-offset: 2px; }
 .hero-label {
   position: absolute;
   left: 20px;

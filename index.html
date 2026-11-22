@@ -27,10 +27,10 @@ tegels:
      Opbouw (wisselend ritme): hero (wit), steden (lichte band),
      praktisch (wit). Kop en voettekst komen uit de basislayout.
 
-     Foto's: in _data/steden.yml kan bij een stad de regel
-       foto: "/fotos/uppsala.jpg"
-       fotobron: "Foto: [maker], [licentie]"
-     worden toegevoegd. Zolang die ontbreekt, toont de pagina
+     Foto's: in _data/steden.yml krijgt een stad de regels
+       foto, fotomaker, fotolicentie, fotolicentie_url en fotobron_url.
+     Het bijschrift in de uitgelichte foto wordt daar automatisch
+     uit opgebouwd. Zolang foto ontbreekt, toont de pagina
      een lege fotoplek met "Foto [stad]".
      ============================================================ -->
 
@@ -51,7 +51,7 @@ tegels:
           <div class="hero-foto">
             {% if stad.foto %}<img src="{{ stad.foto | relative_url }}" alt="{{ stad.naam }}">{% else %}<span>Foto {{ stad.naam }}</span>{% endif %}
           </div>
-          <div class="hero-bron">{% if stad.fotobron %}{{ stad.fotobron }}{% else %}Foto: [maker], [licentie]{% endif %}</div>
+          <div class="hero-bron">{% if stad.foto %}Foto: {{ stad.fotomaker }} · <a href="{{ stad.fotolicentie_url }}">{{ stad.fotolicentie }}</a> · <a href="{{ stad.fotobron_url }}">Wikimedia Commons</a> · bijgesneden{% else %}Foto: [maker], [licentie]{% endif %}</div>
           <div class="hero-label">
             <p class="regio-label">{{ stad.regio }}</p>
             <p class="hero-stadnaam">{{ stad.naam }}</p>

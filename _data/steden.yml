@@ -4,10 +4,17 @@
 # Volgorde: eerst de regio's in het Zweeds alfabet (å, ä en ö na de z),
 # daarbinnen de steden alfabetisch. De pagina Alle steden volgt deze volgorde.
 # Optioneel: zoekwoorden (andere spellingen), alleen voor de zoekfunctie.
+# Optioneel: foto (zie Helsingborg en Uppsala), met fotomaker, fotolicentie,
+# fotolicentie_url (link naar de licentietekst) en fotobron_url (link naar de bronpagina).
 - naam: Helsingborg
   regio: Skåne
   bestand: helsingborg
   regel: "Havenstad met uitzicht over het water"
+  foto: "/fotos/helsingborg.jpg"
+  fotomaker: "Johan Wessman / News Øresund"
+  fotolicentie: "CC BY 2.0"
+  fotolicentie_url: "https://creativecommons.org/licenses/by/2.0/"
+  fotobron_url: "https://commons.wikimedia.org/wiki/File:20190531_Helsingborg_fran_havet_0091_(47981230227).jpg"
 - naam: Lund
   regio: Skåne
   bestand: lund
@@ -28,6 +35,11 @@
   regio: Uppsala
   bestand: uppsala
   regel: "Universiteitsstad met een grote kathedraal"
+  foto: "/fotos/uppsala.jpg"
+  fotomaker: "Kateryna Baiduzha"
+  fotolicentie: "CC BY-SA 4.0"
+  fotolicentie_url: "https://creativecommons.org/licenses/by-sa/4.0/"
+  fotobron_url: "https://commons.wikimedia.org/wiki/File:Uppsala_domkyrka,_flygbild.jpg"
 - naam: Gotenburg
   regio: Västra Götaland
   bestand: gotenburg
