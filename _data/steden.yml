@@ -7,6 +7,8 @@
 # Optioneel: zoekwoorden (andere spellingen), alleen voor de zoekfunctie.
 # Optioneel: foto (zie Helsingborg en Uppsala), met fotomaker, fotolicentie,
 # fotolicentie_url (link naar de licentietekst) en fotobron_url (link naar de bronpagina).
+# Optioneel: fotowijziging (wat er aan de foto is veranderd; standaard "bijgesneden").
+# Een eigen foto heeft alleen het veld foto: het bijschrift wordt dan "Eigen foto".
 - naam: Helsingborg
   regio: Skåne län
   bestand: helsingborg
@@ -24,14 +26,26 @@
   regio: Skåne län
   bestand: malmo
   regel: "Derde stad van Zweden, met een directe verbinding naar Kopenhagen"
+  foto: "/fotos/malmo.jpg"
 - naam: Sigtuna
   regio: Stockholms län
   bestand: sigtuna
   regel: "Een van de oudste steden van Zweden"
+  foto: "/fotos/sigtuna.jpg"
+  fotomaker: "Brorsson"
+  fotolicentie: "CC BY-SA 3.0"
+  fotolicentie_url: "https://creativecommons.org/licenses/by-sa/3.0/"
+  fotobron_url: "https://commons.wikimedia.org/wiki/File:Stora_gatan_i_Sigtuna_nr_1.jpg"
+  fotowijziging: "verkleind"
 - naam: Stockholm
   regio: Stockholms län
   bestand: stockholm
   regel: "De hoofdstad, verspreid over eilanden en water"
+  foto: "/fotos/stockholm.jpg"
+  fotomaker: "Holger.Ellgaard"
+  fotolicentie: "CC BY-SA 3.0"
+  fotolicentie_url: "https://creativecommons.org/licenses/by-sa/3.0/"
+  fotobron_url: "https://commons.wikimedia.org/wiki/File:Af_Chapman_2009a.jpg"
 - naam: Uppsala
   regio: Uppsala län
   bestand: uppsala
@@ -46,6 +60,7 @@
   bestand: gotenburg
   regel: "Tweede stad van Zweden met de grootste haven van Scandinavië"
   zoekwoorden: "Göteborg Gothenburg"
+  foto: "/fotos/gotenburg.jpg"
 - naam: Linköping
   regio: Östergötlands län
   bestand: linkoping
