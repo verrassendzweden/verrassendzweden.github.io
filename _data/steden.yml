@@ -9,7 +9,7 @@
 # fotolicentie_url (link naar de licentietekst) en fotobron_url (link naar de bronpagina).
 # Optioneel: fotowijziging (wat er aan de foto is veranderd; standaard "bijgesneden").
 # Optioneel: herofoto (een andere uitsnede van de foto voor de uitgelichte foto bovenaan de homepage).
-# Optioneel: herofotopositie (welk deel van de foto in de hero zichtbaar blijft als hij wordt bijgesneden, bijvoorbeeld "5% 50%"; standaard het midden).
+# Optioneel: herofoto_mobiel (een andere foto voor de uitgelichte foto bovenaan de homepage, alleen op schermen smaller dan 800 px).
 # Een eigen foto heeft alleen het veld foto: het bijschrift wordt dan "Foto: Verrassend Zweden".
 - naam: Helsingborg
   regio: Skåne län
@@ -29,8 +29,7 @@
   bestand: malmo
   regel: "Derde stad van Zweden, met een directe verbinding naar Kopenhagen"
   foto: "/fotos/malmo.jpg"
-  herofoto: "/fotos/malmo-hero.jpg"
-  herofotopositie: "5% 50%"
+  herofoto_mobiel: "/fotos/malmo-hero-mobiel.png"
 - naam: Sigtuna
   regio: Stockholms län
   bestand: sigtuna
