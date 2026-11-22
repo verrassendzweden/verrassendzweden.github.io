@@ -50,7 +50,7 @@ tegels:
               <a class="knop" href="{{ '/' | append: stad.bestand | append: '.html' | relative_url }}">Bekijk de stad →</a>
             </div>
           </div>
-          <div class="hero-bron">{% if stad.fotomaker %}Foto: {{ stad.fotomaker }} · <a href="{{ stad.fotolicentie_url }}">{{ stad.fotolicentie }}</a> · <a href="{{ stad.fotobron_url }}">Wikimedia Commons</a> · {{ stad.fotowijziging | default: "bijgesneden" }}{% else %}Eigen foto{% endif %}</div>
+          <div class="hero-bron">{% if stad.fotomaker %}Foto: {{ stad.fotomaker }} · <a href="{{ stad.fotolicentie_url }}">{{ stad.fotolicentie }}</a> · <a href="{{ stad.fotobron_url }}">Wikimedia Commons</a> · {{ stad.fotowijziging | default: "bijgesneden" }}{% else %}Foto: Verrassend Zweden{% endif %}</div>
         </div>
         {% assign eerste = false %}{% endif %}{% endfor %}
       </div>
