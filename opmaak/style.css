@@ -402,6 +402,7 @@ main.home { padding: 0; }
 }
 .hero-slide:nth-child(even) .hero-foto { background: #dce7f2; }
 .hero-foto img { width: 100%; height: 100%; object-fit: cover; }
+.hero-foto img:not([src]) { visibility: hidden; }
 /* Bijschrift onder de foto (maker, licentie, bron) */
 .hero-bron {
   margin: 8px 2px 0;
@@ -416,7 +417,7 @@ main.home { padding: 0; }
   position: absolute;
   left: 16px;
   bottom: 16px;
-  width: 270px;
+  width: 250px;
   max-width: calc(100% - 32px);
   box-sizing: border-box;
   padding: 12px 16px;
@@ -436,9 +437,9 @@ main.home { padding: 0; }
 .hero-stadnaam {
   margin: 0 0 8px;
   color: var(--blue-dark);
-  font-size: 26px;
+  font-size: 22px;
   font-weight: 600;
-  line-height: 30px;
+  line-height: 26px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -590,8 +591,8 @@ main.home { padding: 0; }
   .hero { padding: 40px 0 36px; }
   .band-licht, .praktisch { padding: 56px 0 64px; }
   .hero-foto { height: 360px; }
-  .hero-label { left: 12px; bottom: 12px; width: 250px; padding: 10px 14px; }
-  .hero-stadnaam { font-size: 22px; line-height: 26px; }
+  .hero-label { left: 12px; bottom: 12px; width: 230px; padding: 10px 14px; }
+  .hero-stadnaam { font-size: 20px; }
   .sectie-kop h2, .praktisch-titel { font-size: 30px; }
   /* Mobiel: alleen de eerste drie stadstegels tonen */
   .tegel:nth-child(n+4) { display: none; }

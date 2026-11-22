@@ -4,14 +4,6 @@ title: Zweedse steden, bekend en minder bekend
 description: Zweden is meer dan bossen en meren. Ontdek Zweedse steden voor een stedentrip, ook buiten Stockholm, Gotenburg en Malmö.
 menu: home
 klasse: homepage
-# Welke steden in de uitgelichte foto bovenaan wisselen (8 seconden per stad).
-# Dit zijn de namen van de bestanden uit _data/steden.yml.
-hero:
-  - uppsala
-  - stockholm
-  - helsingborg
-  - malmo
-  - gotenburg
 # Welke zes steden onder "Steden om te ontdekken" staan, in deze volgorde.
 tegels:
   - uppsala
@@ -30,8 +22,9 @@ tegels:
      Foto's: in _data/steden.yml krijgt een stad de regels
        foto, fotomaker, fotolicentie, fotolicentie_url en fotobron_url.
      Het bijschrift in de uitgelichte foto wordt daar automatisch
-     uit opgebouwd. Zolang foto ontbreekt, toont de pagina
-     een lege fotoplek met "Foto [stad]".
+     uit opgebouwd. De uitgelichte foto bovenaan toont alle steden
+     die een foto hebben: elke dag een andere selectie van maximaal
+     8 (zie scripts/home.js). Steden zonder foto doen daar niet aan mee.
      ============================================================ -->
 
 <!-- ===== HERO ===== -->
@@ -45,26 +38,25 @@ tegels:
 
     <div class="hero-kolom" data-hero role="region" aria-roledescription="carrousel" aria-label="Uitgelichte steden">
       <div class="hero-slides">
-        {% for b in page.hero %}
-        {% assign stad = site.data.steden | where: "bestand", b | first %}
-        <div class="hero-slide{% if forloop.first %} actief{% endif %}">
+        {% assign eerste = true %}
+        {% for stad in site.data.steden %}{% if stad.foto %}
+        <div class="hero-slide{% if eerste %} actief{% endif %}" data-sleutel="{{ stad.bestand }}" data-naam="{{ stad.naam }}">
           <div class="hero-foto">
-            {% if stad.foto %}<img src="{{ stad.foto | relative_url }}" alt="{{ stad.naam }}">{% else %}<span>Foto {{ stad.naam }}</span>{% endif %}
+            <img data-src="{{ stad.foto | relative_url }}" alt="{{ stad.naam }}" decoding="async">
+            {% if eerste %}<noscript><img src="{{ stad.foto | relative_url }}" alt="{{ stad.naam }}"></noscript>{% endif %}
             <div class="hero-label">
               <p class="regio-label">{{ stad.regio }}</p>
               <p class="hero-stadnaam">{{ stad.naam }}</p>
               <a class="knop" href="{{ '/' | append: stad.bestand | append: '.html' | relative_url }}">Bekijk de stad →</a>
             </div>
           </div>
-          <div class="hero-bron">{% if stad.foto %}Foto: {{ stad.fotomaker }} · <a href="{{ stad.fotolicentie_url }}">{{ stad.fotolicentie }}</a> · <a href="{{ stad.fotobron_url }}">Wikimedia Commons</a> · bijgesneden{% else %}Foto: [maker], [licentie]{% endif %}</div>
+          <div class="hero-bron">Foto: {{ stad.fotomaker }} · <a href="{{ stad.fotolicentie_url }}">{{ stad.fotolicentie }}</a> · <a href="{{ stad.fotobron_url }}">Wikimedia Commons</a> · bijgesneden</div>
         </div>
-        {% endfor %}
+        {% assign eerste = false %}{% endif %}{% endfor %}
       </div>
 
       <div class="hero-bediening">
-        <div class="hero-stippen">
-          {% for b in page.hero %}{% assign stip = site.data.steden | where: "bestand", b | first %}<button type="button" class="hero-stip{% if forloop.first %} actief{% endif %}" aria-label="Toon {{ stip.naam }}"><span></span></button>{% endfor %}
-        </div>
+        <div class="hero-stippen"></div>
         <button type="button" class="hero-pauze" aria-label="Wisselen van uitgelichte stad pauzeren">Pauzeer</button>
       </div>
     </div>
